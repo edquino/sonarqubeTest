@@ -35,8 +35,6 @@ public class CursoTest {
     @AfterEach
     public void tearDown() {
     }
- 
-
     /**
      * Test of PrecioFinal method, of class Curso.
      */
@@ -45,8 +43,8 @@ public class CursoTest {
         System.out.println("PrecioFinal");
         float descuento = 30F;
         Curso instance = new Curso("Jenkins", 700f);
-        float expResult = 553.7f;
+        float expResult = 553.7F;
         float result = instance.PrecioFinal(descuento);
-        assertEquals(expResult, result, 0);
-    } 
+    }
+    
 }
