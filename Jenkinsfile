@@ -33,11 +33,13 @@ pipeline {
                 junit 'target/surefire-reports/*.xml'
             }*/
         }
+        /*
         stage('Deploy') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
+        */
         stage('Sonar Scanner') {
             environment {
                 SCANNER_HOME = tool 'SonarScanner'
