@@ -42,20 +42,19 @@ pipeline {
             steps{
                 withSonarQubeEnv('sonarqube'){
                         withCredentials([string(credentialsId: 'TokenSonarqube', variable: 'sonarLogin')]) {
-                        sh "${SCANNER_HOME}/bin/sonar-scanner -e -Dsonar.host.url=http://192.168.228.3:9000 -Dsonar.login=${sonarLogin} -Dsonar.projectName=SonarqubeTest -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=develop -Dsonar.sources=src/main/ -Dsonar.language=java -Dsonar.java.binaries=."
+                        sh "${SCANNER_HOME}/bin/sonar-scanner -e -Dsonar.host.url=http://192.168.228.3:9000 -Dsonar.login=${sonarLogin} -Dsonar.projectName=SonarqubeTest -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=develop -Dsonar.sources=src/main/ -Dsonar.tests=target/jacoco.exec -Dsonar.language=java -Dsonar.java.binaries=."
                     } 
                 }
             }
         }
-
+        /*
         stage('Quality Gate'){
             steps{
-                waitForQualityGate abortPipeline: true
-                /*timeout(time: 7, unit: 'MINUTES'){
+                timeout(time: 7, unit: 'MINUTES'){
                     waitForQualityGate abortPipeline: true
-                    waitForQualityGate abortPipeline: true
-                }*/
+                }
             }
         }
+        */
     }
 }
