@@ -42,7 +42,7 @@ pipeline {
         */
         stage('Sonar Scanner') {
             environment {
-                SCANNER_HOME = tool 'SonarScanner'
+                SCANNER_HOME = tool 'sonarScanner'
             }
             steps{
                 withCredentials([string(credentialsId: 'TokenSonarqube', variable: 'sonarLogin')]) {
