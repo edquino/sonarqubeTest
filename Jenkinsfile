@@ -1,9 +1,9 @@
-/*def qualityGateValidation(gg) {
+def qualityGateValidation(gg) {
     if(gg.status != 'OK'){
         return true
     }
     return false
-}*/
+}
 pipeline {
     agent any
     tools{
@@ -47,14 +47,14 @@ pipeline {
                 }
             }
         }
-        /*
+        
         stage('Quality Gate'){
             steps{
-                timeout(time: 7, unit: 'MINUTES'){
-                    waitForQualityGate abortPipeline: true
+                timeout(time: 5, unit: 'MINUTES'){
+                    waitForQualityGate abortPipeline: qualityGateValidation(qualityGateValidation())
                 }
             }
         }
-        */
+        
     }
 }
