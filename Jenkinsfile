@@ -6,11 +6,6 @@
 }*/
 pipeline {
     agent any
-    /*{
-        node {
-            label '10.5.149.147'
-        }
-    }*/
     tools{
         maven 'mavenjenkins'
     }
@@ -28,10 +23,10 @@ pipeline {
         stage('test') {
             steps {
                 sh 'mvn test'
-            }/*
+            }
             post{
                 junit 'target/surefire-reports/*.xml'
-            }*/
+            }
         }
         /*
         stage('Deploy') {
