@@ -57,8 +57,13 @@ pipeline {
         }*/
         stage("Quality Gate"){
             steps{
-                timeout(time: 3, unit: 'MINUTES') { // Just in case something goes wrong, pipeline will be killed after a timeout
-                   waitForQualityGate(webhookSecretId: 'TokenSonarqube')  // Reuse taskId previously collected by withSonarQubeEnv
+               script {
+                        def qg = waitForQualityGate()
+                        if (qg.status != 'OK') {
+                            error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                            echo "test3" 
+                        
+                        }
                 }
             }   
         }
