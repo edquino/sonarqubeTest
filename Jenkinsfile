@@ -58,7 +58,7 @@ pipeline {
         stage("Quality Gate"){
             steps{
                 timeout(time: 3, unit: 'MINUTES') { // Just in case something goes wrong, pipeline will be killed after a timeout
-                    def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+                   waitForQualityGate(webhookSecretId: 'TokenSonarqube')  // Reuse taskId previously collected by withSonarQubeEnv
                 }
             }   
         }
