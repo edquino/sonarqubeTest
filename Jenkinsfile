@@ -57,12 +57,12 @@ pipeline {
         }*/
 
         stage("Quality Gate"){
-            echo "------------- Iniciando QualityGates"
             steps{
+                echo "------------- Iniciando QualityGates"
                 timeout(time: 3, unit: 'MINUTES') { // Just in case something goes wrong, pipeline will be killed after a timeout
                     def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
                     if (qg.status != 'OK') {
-                        echo "Pipeline aborted due to quality gate failure: ${qg.status}"
+                        error "Pipeline aborted due to quality gate failure: ${qg.status}"
                     }
                 }   
             }
