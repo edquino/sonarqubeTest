@@ -42,7 +42,7 @@ pipeline {
             steps{
                 withSonarQubeEnv('sonarqube'){
                     //    withCredentials([string(credentialsId: 'TokenSonarqube', variable: 'sonarLogin')]) {
-                        sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.host.url=http://192.168.228.3:9000 -Dsonar.login=admin -Dsonar.password=admin -Dsonar.projectName=SonarqubeTest -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=develop -Dsonar.sources=src/main/ -Dsonar.coverage.jacoco.xmlReportPaths=target/surefire-reports/*.xml -Dsonar.tests=target/jacoco.exec -Dsonar.java.binaries=. -Dsonar.language=java -Dsonar.java.source=11"
+                        sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.host.url=http://192.168.56.101:9000 -Dsonar.login=admin -Dsonar.password=adminadmin -Dsonar.projectName=SonarqubeTest -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=develop -Dsonar.sources=src/main/ -Dsonar.coverage.jacoco.xmlReportPaths=target/surefire-reports/*.xml -Dsonar.tests=target/jacoco.exec -Dsonar.java.binaries=. -Dsonar.language=java -Dsonar.java.source=11"
                     //} 
                 }
             }
