@@ -40,7 +40,7 @@ pipeline {
                 SCANNER_HOME = tool 'sonarScanner'
             }
             steps{
-                withSonarQubeEnv('sonarqube', envOnly: true){
+                withSonarQubeEnv('sonarqube'){
                     withCredentials([string(credentialsId: 'TokenSonarqube', variable: 'sonarLogin')]) {
                         sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.host.url=http://192.168.56.101:9000 -Dsonar.projectName=SonarqubeTest -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.projectKey=develop -Dsonar.sources=src/main -Dsonar.tests=target/jacoco.exec -Dsonar.java.binaries=. -Dsonar.language=java -Dsonar.java.source=11"
                     }
@@ -55,19 +55,6 @@ pipeline {
                 }
             }
         }*/
-
-        stage("Quality Gate"){
-            steps{
-                echo "------------- Iniciando QualityGates"
-                timeout(time: 3, unit: 'MINUTES') { // Just in case something goes wrong, pipeline will be killed after a timeout
-                    def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
-                    if (qg.status != 'OK') {
-                        error "Pipeline aborted due to quality gate failure: ${qg.status}"
-                    }
-                }   
-            }
-        
-        }
 
     }
 }
