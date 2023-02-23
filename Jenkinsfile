@@ -30,12 +30,14 @@ pipeline {
         }
         
         stage('Get Approval') {
-            options{
+            /*options{
                 timeout(time: 2, unit:'MINUTES')
-            }
+            }*/
             steps {
-                input 'Please approve to proceed with deployment'
+                input message: 'Please approve to proceed with deployment', ok 'Yes'
             }
+
+            echo 'Initiating deployment'
         }
         /*
         stage('Deploy') {
