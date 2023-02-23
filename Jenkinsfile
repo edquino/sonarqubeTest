@@ -30,8 +30,10 @@ pipeline {
         }
         
         stage('Get Approval') {
+            options{
+                timeout(time: 2, unit:'Minutes')
+            }
             steps {
-                echo "---------------- ${WORKSPACE}"
                 input 'Please approve to proceed with deployment'
             }
         }
