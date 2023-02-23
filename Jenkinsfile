@@ -31,7 +31,7 @@ pipeline {
         
         stage('Get Approval') {
             steps {
-                echo "------ $(WORKSPACE) ---------- ${WORKSPACE}"
+                echo "---------------- ${WORKSPACE}"
                 input 'Please approve to proceed with deployment'
             }
         }
