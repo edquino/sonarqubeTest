@@ -24,9 +24,6 @@ pipeline {
             steps {
                 sh 'mvn test'
             }
-            /*post{
-                junit 'target/surefire-reports/*.xml'
-            }*/
         }
 
         stage('Send Email') {
@@ -49,12 +46,12 @@ pipeline {
                 }
             }
         }
-        /*
+        
         stage('Deploy') {
             steps {
-                sh './jenkins/scripts/deliver.sh'
+                //sh './jenkins/scripts/deliver.sh'
             }
-        }*/
+        }
         
         stage('Sonar Scanner') {
             environment {
