@@ -49,12 +49,12 @@ pipeline {
                 }
             }
         }
-        
+        /*
         stage('Deploy') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }
-        }
+        }*/
         
         stage('Sonar Scanner') {
             environment {
