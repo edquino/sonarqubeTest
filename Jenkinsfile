@@ -50,7 +50,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 //sh './jenkins/scripts/deliver.sh'
-                echo "Publicacion en marcha"
+                echo " ----- Publicacion en marcha... "
             }
         }
         
