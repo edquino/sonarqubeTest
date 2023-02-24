@@ -34,8 +34,7 @@ pipeline {
                 timeout(time: 2, unit:'MINUTES')
             }*/
             steps {
-                echo 'Initiating Approval'
-                input message: 'Please approve to proceed with deployment', ok: 'Yes'
+                input message: '¿Desea continuar con el Proceso de Publicación?', ok: 'Yes'
             }
         }
         /*
