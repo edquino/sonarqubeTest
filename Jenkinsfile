@@ -33,9 +33,6 @@ pipeline {
             options{
                 timeout(time: 1, unit:'MINUTES')
             }
-            steps {
-                input message: '¿Desea continuar con el Proceso de Publicación?', ok: 'Yes'
-            }
         }
 
         stage('Get Approval') {
@@ -44,15 +41,18 @@ pipeline {
             }
             steps {
                 input message: '¿Desea continuar con el Proceso de Publicación?', ok: 'Yes'
+                script{
+                    sleep(time: 1, unit:'MINUTES')
+                }
             }
         }
-        /*
+        
         stage('Deploy') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-        */
+        
         stage('Sonar Scanner') {
             environment {
                 SCANNER_HOME = tool 'sonarScanner'
