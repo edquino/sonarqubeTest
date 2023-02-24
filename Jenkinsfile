@@ -50,13 +50,13 @@ pipeline {
 
         stage('Get Approval') {
             options{
-                timeout(time: 2, unit:'MINUTES')
+                timeout(time: 1, unit:'MINUTES')
             }
             steps {
                 input message: '¿Desea continuar con el Proceso de Publicación?', ok: 'Yes'
-                script{
+                /*script{
                     sleep(time: 1, unit:'MINUTES')
-                }
+                }*/
             }
         }
         
