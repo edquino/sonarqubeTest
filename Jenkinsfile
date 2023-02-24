@@ -30,8 +30,10 @@ pipeline {
         }
 
         stage('Send Email') {
-            options{
-                timeout(time: 1, unit:'MINUTES')
+            steps{
+                options{
+                    timeout(time: 1, unit:'MINUTES')
+                }
             }
         }
 
