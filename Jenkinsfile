@@ -28,11 +28,20 @@ pipeline {
                 junit 'target/surefire-reports/*.xml'
             }*/
         }
-        
+
+        stage('Send Email') {
+            options{
+                timeout(time: 1, unit:'MINUTES')
+            }
+            steps {
+                input message: '¿Desea continuar con el Proceso de Publicación?', ok: 'Yes'
+            }
+        }
+
         stage('Get Approval') {
-            /*options{
+            options{
                 timeout(time: 2, unit:'MINUTES')
-            }*/
+            }
             steps {
                 input message: '¿Desea continuar con el Proceso de Publicación?', ok: 'Yes'
             }
