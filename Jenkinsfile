@@ -53,17 +53,17 @@ pipeline {
             options{
                 timeout(time: 1, unit:'MINUTES')
             }
-            steps {
-                input { message 'Seleccionar el ambiente de Publicación'
+            input { 
+                    message 'Seleccionar el ambiente de Publicación'
                     id 'envId'
                     ok 'Submit'
                     submitterParameter 'approverId'
                     parameters {
                         choice choices: ['Desarrollo', 'Producción '], name: 'envType'
                     }
-                }
             }
-            script {
+            steps {
+                            script {
                 if(envType == 'Desarrollo'){
                     echo "---------------------------------"
                     echo "Publicacion DESARROLLO"
@@ -73,6 +73,7 @@ pipeline {
                     echo "Publicacion PRODUCCION"
                     echo "---------------------------------"
                 }
+            }
             }
         }
         /*
