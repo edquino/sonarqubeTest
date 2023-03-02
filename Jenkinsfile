@@ -48,7 +48,33 @@ pipeline {
                 }*/
             }
         }
-        
+
+        stage('Get Approval') {
+            options{
+                timeout(time: 1, unit:'MINUTES')
+            }
+            steps {
+                input {message 'Seleccionar el ambiente de Publicación'
+                id 'envId'
+                ok 'Submit'
+                submitterParameter 'approverId'
+                parameters {
+                    choice choices: ['Desarrollo', 'Producción '], name: 'envType'
+                }
+            }
+            script {
+                if(envType == 'Desarrollo'){
+                    echo "---------------------------------"
+                    echo "Publicacion DESARROLLO"
+                    echo "---------------------------------"
+                } else {
+                    echo "---------------------------------"
+                    echo "Publicacion PRODUCCION"
+                    echo "---------------------------------"
+                }
+            }
+        }
+        /*
         stage('Deploy') {
             steps {
                 echo "---------------------------------"
@@ -58,7 +84,7 @@ pipeline {
                 
             }
         }
-
+        */
         
         stage('Sonar Scanner') {
             environment {
