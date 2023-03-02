@@ -31,7 +31,9 @@ pipeline {
                 timeout(time: 1, unit:'MINUTES')
             }
             steps{
+                echo "------------------------------"
                 echo "Envios de correos electronicos"
+                echo "------------------------------"
             }
         }
 
@@ -40,7 +42,7 @@ pipeline {
                 timeout(time: 1, unit:'MINUTES')
             }
             steps {
-                input message: '¿Desea continuar con el Proceso de Publicación?', ok: 'Yes'
+                input message: '¿Desea continuar con el Proceso de Publicación?', ok: 'Si'
                 /*script{
                     sleep(time: 1, unit:'MINUTES')
                 }*/
@@ -49,8 +51,11 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                //sh './jenkins/scripts/deliver.sh'
-                echo " ----- Publicacion en marcha... "
+                echo "---------------------------------"
+                echo "Publicacion en Marcha"
+                echo "---------------------------------"
+                sh './jenkins/scripts/deliver.sh'
+                
             }
         }
 
