@@ -37,17 +37,17 @@ pipeline {
             }
         }
 
-        stage('Get Approval') {
+        /*stage('Get Approval') {
             options{
                 timeout(time: 1, unit:'MINUTES')
             }
             steps {
                 input message: '¿Desea continuar con el Proceso de Publicación?', ok: 'Si'
-                /*script{
+                script{
                     sleep(time: 1, unit:'MINUTES')
-                }*/
+                }
             }
-        }
+        }*/
 
         stage('Get Approval') {
             options{
