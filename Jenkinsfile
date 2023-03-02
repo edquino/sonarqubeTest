@@ -54,7 +54,7 @@ pipeline {
                 echo "---------------------------------"
                 echo "Publicacion en Marcha"
                 echo "---------------------------------"
-                sh './jenkins/scripts/deliver.sh'
+                //sh './jenkins/scripts/deliver.sh'
                 
             }
         }
