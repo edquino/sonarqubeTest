@@ -113,10 +113,17 @@ pipeline {
 
  
     post{
-        success{
+        always{
             emailext body: 'Hola mundo desde Jenkins', 
             subject: 'Test Email - Emailext', 
-            to: 'edquino@outlook.es, edquinosanchez@gmail.com'
+            to: 'edquinosanchez@gmail.com'
+        }
+        success{
+            emai(
+                body: 'Hola mundo desde Jenkins', 
+                subject: 'Test Email - Emailext', 
+                to:'edquinosanchez@gmail.com'
+            )  
         }
     }
         
