@@ -110,4 +110,14 @@ pipeline {
             }
         }*/
     }
+
+ 
+    post{
+        success{
+            emailext body: 'Hola mundo desde Jenkins', 
+            subject: 'Test Email - Emailext', 
+            to: 'edquino@outlook.es, edquinosanchez@gmail.com'
+        }
+    }
+        
 }
