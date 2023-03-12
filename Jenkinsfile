@@ -88,7 +88,7 @@ pipeline {
         }
         */
         
-        stage('Sonar Scanner') {
+        /*stage('Sonar Scanner') {
             environment {
                 SCANNER_HOME = tool 'sonarScanner'
             }
@@ -99,7 +99,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
         
         /*
         stage('Quality Gates'){
