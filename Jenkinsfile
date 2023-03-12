@@ -116,13 +116,13 @@ pipeline {
         always{
             emailext body: 'Hola mundo desde Jenkins', 
             subject: 'Test Email - Emailext', 
-            to: 'edquinosanchez@gmail.com'
+            to: 'edquino@outlook.es'
         }
         success{
             emailext(
                 body: 'Hola mundo desde Jenkins', 
                 subject: 'Test Email - Emailext----------', 
-                to:'edquinosanchez@gmail.com'
+                to:'edquino@outlook.es'
             )  
         }
     }
