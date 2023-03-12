@@ -121,7 +121,7 @@ pipeline {
         success{
             mail(
                 body: 'Hola mundo desde Jenkins', 
-                subject: 'Test Email - Emailext', 
+                subject: 'Test Email - Emailext----------', 
                 to:'edquinosanchez@gmail.com'
             )  
         }
