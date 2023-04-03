@@ -63,17 +63,21 @@ pipeline {
                     }
             }
             steps {
-                            script {
-                if(envType == 'Desarrollo'){
-                    echo "---------------------------------"
-                    echo "Publicacion DESARROLLO"
-                    echo "---------------------------------"
-                } else {
-                    echo "---------------------------------"
-                    echo "Publicacion PRODUCCION"
-                    echo "---------------------------------"
+                script {
+                    if(envType == 'Desarrollo'){
+                        echo "---------------------------------"
+                        echo "Publicacion DESARROLLO"
+                        echo "---------------------------------"
+                    } else {
+                        echo "---------------------------------"
+                        echo "Publicacion PRODUCCION"
+                        echo "---------------------------------"
+                    }
                 }
             }
+
+            steps {
+                checkmarxASTScanner additionalOptions: '--project-tag jenkins --scan-types sast,sca,kics --file-source https://github.com/edquino/sonarqubeTest.git', baseAuthUrl: 'https://iam.checkmarx.net', branchName: 'master', checkmarxInstallation: 'CxASTCLI', credentialsId: 'user-checkmarx', projectName: 'project2-checkmarx', serverUrl: 'https://ast.checkmarx.net', tenantName: 'promericasv'
             }
         }
         /*
@@ -111,7 +115,7 @@ pipeline {
         }*/
     }
 
- 
+    /*
     post{
         always{
             emailext body: 'Hola mundo desde Jenkins', 
@@ -126,5 +130,6 @@ pipeline {
             )  
         }
     }
+    */
         
 }
