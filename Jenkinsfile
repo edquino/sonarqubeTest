@@ -80,7 +80,7 @@ pipeline {
                     
         stage('Analisis checkmarx'){
                 steps {
-                    checkmarxASTScanner additionalOptions: '--project-tag jenkins --scan-types sast,sca,kics --file-source https://github.com/edquino/sonarqubeTest.git', baseAuthUrl: 'https://iam.checkmarx.net', branchName: 'master', checkmarxInstallation: 'CxASTCLI', credentialsId: 'user-checkmarx', projectName: 'project2-checkmarx', serverUrl: 'https://ast.checkmarx.net', tenantName: 'promericasv'
+                    checkmarxASTScanner additionalOptions: '--project-tag jenkins --scan-types sast,sca,kics --file-source https://github.com/edquino/sonarqubeTest.git', baseAuthUrl: 'https://ast.checkmarx.net', branchName: 'master', checkmarxInstallation: 'CxASTCLI', credentialsId: 'user-checkmarx', projectName: 'project2-checkmarx', serverUrl: 'https://ast.checkmarx.net', tenantName: 'promericasv'
             }
         }
         /*
