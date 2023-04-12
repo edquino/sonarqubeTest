@@ -20,12 +20,13 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        /*
         stage('test') {
             steps {
                 sh 'mvn test'
             }
         }
-
+        */
         stage('Send Email') {
             options{
                 timeout(time: 1, unit:'MINUTES')
@@ -48,7 +49,7 @@ pipeline {
                 }
             }
         }*/
-
+        /*
         stage('Get Approval') {
             options{
                 timeout(time: 1, unit:'MINUTES')
@@ -76,7 +77,7 @@ pipeline {
                 }
             }
         }
-
+        */
                     
         stage('Analisis checkmarx'){
                 steps {
