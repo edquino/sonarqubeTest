@@ -10,6 +10,7 @@ pipeline {
         maven 'mavenjenkins'
     }
     stages {
+        /*
          stage('Prepare scripts'){
             steps{
                 sh 'chmod a+x jenkins/scripts/*.sh'
@@ -20,6 +21,7 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        */
         /*
         stage('test') {
             steps {
