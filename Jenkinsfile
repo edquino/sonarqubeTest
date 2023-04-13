@@ -7,7 +7,7 @@
 pipeline {
     agent any
     tools{
-        maven 'mavenjenkins'
+        maven 'astScan '
     }
     stages {
         /*
