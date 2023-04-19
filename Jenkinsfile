@@ -8,7 +8,7 @@ pipeline {
     agent any
     
     tools{
-        maven 'CxASTCLI'
+        maven 'mavenjenkins'
     }
     
     stages {
