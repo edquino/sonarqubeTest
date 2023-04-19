@@ -54,11 +54,11 @@ pipeline {
                 branch 'master'
             }    
             steps {
-                //sh 'git remote add origin https://github.com/edquino/sonarqubeTest.git'
-                sh 'git fetch origin cert_002:cert_002'
-                sh 'git checkout master'
-                sh 'git merge cert_002'
-                sh 'git push origin master'
+                sh 'git remote show origin'
+                //sh 'git fetch origin cert_002:cert_002'
+                //sh 'git checkout master'
+                //sh 'git merge cert_002'
+                //sh 'git push origin master'
             }
         }
 
