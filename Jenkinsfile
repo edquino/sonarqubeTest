@@ -6,9 +6,11 @@
 }*/
 pipeline {
     agent any
+    
     tools{
         maven 'astScan '
     }
+    
     stages {
         /*
          stage('Prepare scripts'){
@@ -37,6 +39,16 @@ pipeline {
                 echo "------------------------------"
                 echo "Envios de correos electronicos"
                 echo "------------------------------"
+            }
+        }
+        
+        stage('Merge Changes') {
+            steps {
+                sh 'git remote add origin https://github.com/my-user/my-repo.git'
+                sh 'git fetch origin feature-branch:feature-branch'
+                sh 'git checkout main'
+                sh 'git merge feature-branch'
+                sh 'git push origin main'
             }
         }
 
@@ -80,12 +92,13 @@ pipeline {
             }
         }
         */
-                    
+        /*            
         stage('Analisis checkmarx'){
                 steps {
-                    checkmarxASTScanner additionalOptions: '--project-tag jenkins --scan-types sast,sca,kics --file-source https://github.com/edquino/sonarqubeTest.git', baseAuthUrl: 'https://ast.checkmarx.net', branchName: 'master', checkmarxInstallation: 'CxASTCLI', credentialsId: 'user-checkmarx', projectName: 'project2-checkmarx', serverUrl: 'https://ast.checkmarx.net', tenantName: 'promericasv'
+                    checkmarxASTScanner additionalOptions: '--project-tag jenkins --scan-types sast,sca,kics --file-source https://github.com/edquino/sonarqubeTest.git --debug', baseAuthUrl: 'https://ast.checkmarx.net', branchName: 'master', checkmarxInstallation: 'CxASTCLI', credentialsId: 'user-checkmarx', projectName: 'project2-checkmarx', serverUrl: 'https://ast.checkmarx.net', tenantName: 'promericasv'
             }
         }
+        */
         /*
         stage('Deploy') {
             steps {
