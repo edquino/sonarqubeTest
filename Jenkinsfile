@@ -43,12 +43,15 @@ pipeline {
         }
         
         stage('Merge Changes') {
+            when {
+                branch 'master'
+            }    
             steps {
-                sh 'git remote add origin https://github.com/my-user/my-repo.git'
-                sh 'git fetch origin feature-branch:feature-branch'
-                sh 'git checkout main'
-                sh 'git merge feature-branch'
-                sh 'git push origin main'
+                sh 'git remote add origin https://github.com/edquino/sonarqubeTest.git'
+                sh 'git fetch origin cert_002:cert_002'
+                sh 'git checkout master'
+                sh 'git merge cert_002'
+                sh 'git push origin master'
             }
         }
 
