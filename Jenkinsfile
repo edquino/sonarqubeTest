@@ -8,7 +8,7 @@ pipeline {
     agent any
     
     tools{
-        maven 'astScan '
+        maven 'CxASTCLI'
     }
     
     stages {
