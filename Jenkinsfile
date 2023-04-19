@@ -41,6 +41,13 @@ pipeline {
                 echo "------------------------------"
             }
         }
+
+        stage('Configurar Git') {
+            steps {
+                sh 'git config user.name "edquino"'
+                sh 'git config user.email "edquinosanchez@gmail.com"'
+            }
+        }
         
         stage('Merge Changes') {
             when {
