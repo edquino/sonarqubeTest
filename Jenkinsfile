@@ -41,13 +41,6 @@ pipeline {
                 echo "------------------------------"
             }
         }
-
-        stage('Configurar Git') {
-            steps {
-                sh 'git config user.name "edquino"'
-                sh 'git config user.email "edquinosanchez@gmail.com"'
-            }
-        }
         
         stage('Merge Changes') {
             when {
@@ -55,10 +48,12 @@ pipeline {
             }    
             steps {
                 sh 'git remote show origin'
-                //sh 'git fetch origin cert_002:cert_002'
-                //sh 'git checkout master'
-                //sh 'git merge cert_002'
-                //sh 'git push origin master'
+                sh 'git config user.name "edquino"'
+                sh 'git config user.email "edquinosanchez@gmail.com"'
+                sh 'git fetch origin cert_002:cert_002'
+                sh 'git checkout master'
+                sh 'git merge cert_002'
+                sh 'git push origin master'
             }
         }
 
