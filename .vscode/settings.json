@@ -1,5 +1,4 @@
 {
-    "cx.enableUserCredentialsLogin":true,
     "cx.server": {
         "url": "https://ast.checkmarx.net/",
         "alias": "SAST_90",
