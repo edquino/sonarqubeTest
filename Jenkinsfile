@@ -12,7 +12,7 @@ pipeline {
     }
     
     stages {
-        /*
+        
          stage('Prepare scripts'){
             steps{
                 sh 'chmod a+x jenkins/scripts/*.sh'
@@ -23,7 +23,7 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        */
+        
         /*
         stage('test') {
             steps {
@@ -41,7 +41,7 @@ pipeline {
                 echo "------------------------------"
             }
         }
-        
+        /*
         stage('Merge Changes') {
             when {
                 branch 'master'
@@ -56,7 +56,7 @@ pipeline {
                 sh 'git push origin master'
             }
         }
-
+        */
         /*stage('Get Approval') {
             options{
                 timeout(time: 1, unit:'MINUTES')
@@ -97,13 +97,13 @@ pipeline {
             }
         }
         */
-        /*            
+                    
         stage('Analisis checkmarx'){
                 steps {
                     checkmarxASTScanner additionalOptions: '--project-tag jenkins --scan-types sast,sca,kics --file-source https://github.com/edquino/sonarqubeTest.git --debug', baseAuthUrl: 'https://ast.checkmarx.net', branchName: 'master', checkmarxInstallation: 'CxASTCLI', credentialsId: 'user-checkmarx', projectName: 'project2-checkmarx', serverUrl: 'https://ast.checkmarx.net', tenantName: 'promericasv'
             }
         }
-        */
+        
         /*
         stage('Deploy') {
             steps {
